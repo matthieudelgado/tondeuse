@@ -75,8 +75,12 @@ public class Tondeuse {
 		if(terrain.estCaseLibre(xTmp, yTmp)){
 			x = xTmp;
 			y = yTmp;
-			terrain.positionerTondeuse(x, y);
 		}
+		terrain.positionerTondeuse(x, y);
+	}
+	
+	public String toString(){
+		return "("+x+", "+y+", "+orientation.name()+")";
 	}
 	
 }

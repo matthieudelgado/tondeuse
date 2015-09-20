@@ -34,5 +34,18 @@ public class Simulateur {
 	public Tondeuse getTondeuse(int numTondeuse){
 		return tondeuses.get(numTondeuse);
 	}
+	
+	public void dessinerTerrain(){
+		terrain.dessinerTerrain();
+	}
+
+	public void afficherPositionTondeuses() {
+		int numTondeuse = 1;
+		for(Tondeuse tondeuse : tondeuses){
+			System.out.println("Position de la tondeuse n "+numTondeuse+" : "+tondeuse+"\n");
+			numTondeuse++;
+		}
+		
+	}
 
 }

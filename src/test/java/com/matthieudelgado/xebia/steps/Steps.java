@@ -5,6 +5,7 @@ import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
+import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.Alias;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
@@ -42,4 +43,10 @@ public class Steps {
 		assertThat(simulateur.getTondeuse(idTondeuse-1).getY(), equalTo(y));
 		assertThat(simulateur.getTondeuse(idTondeuse-1).getOrientation(), equalTo(orientation));
 	}	
+	
+	@AfterScenario 
+	public void apresScenario() {
+		simulateur.dessinerTerrain();
+		simulateur.afficherPositionTondeuses();
+	}
 }
