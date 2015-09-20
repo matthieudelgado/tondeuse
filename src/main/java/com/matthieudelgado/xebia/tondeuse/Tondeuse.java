@@ -65,8 +65,15 @@ public class Tondeuse {
 	}
 	
 	private void deplacer(int deltaX, int deltaY){
-		x = Integer.min(terrain.getLargeur() -1, Integer.max(x + deltaX, 0));
-		y = Integer.min(terrain.getLongueur() -1, Integer.max(y + deltaY, 0));
+		int xTmp = Integer.min(terrain.getLargeur() -1, Integer.max(x + deltaX, 0));
+		int yTmp = Integer.min(terrain.getLongueur() -1, Integer.max(y + deltaY, 0));
+		
+		terrain.couperCase(x, y);
+		if(terrain.estCaseLibre(xTmp, yTmp)){
+			x = xTmp;
+			y = yTmp;
+			terrain.positionerTondeuse(x, y);
+		}
 	}
 	
 }

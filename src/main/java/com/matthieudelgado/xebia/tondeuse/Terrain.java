@@ -13,7 +13,7 @@ public class Terrain {
 		this.largeur = largeur;
 		this.cases = new Case[longueur][largeur];
 		for(int colonne = 0; colonne < longueur; colonne++)
-			Arrays.fill(cases[colonne], Case.COURT);
+			Arrays.fill(cases[colonne], Case.LONG);
 	}
 
 	public int getLongueur() {
@@ -29,7 +29,7 @@ public class Terrain {
 		return Case.COURT.equals(_case) || Case.LONG.equals(_case);
 	}
 	
-	public boolean placerTondeuse(Tondeuse tondeuse, int x, int y, Orientation orientation){
+	public boolean installerTondeuse(Tondeuse tondeuse, int x, int y, Orientation orientation){
 		if(estCaseLibre(x,y)){
 			tondeuse.setX(x);
 			tondeuse.setY(y);
@@ -40,7 +40,13 @@ public class Terrain {
 		return false;
 	}
 	
-
+	public void couperCase(int x, int y){
+		cases[x][y] = Case.COURT;
+	}
+	
+	public void positionerTondeuse(int x, int y){
+		cases[x][y] = Case.TONDEUSE;
+	}
 
 	
 }

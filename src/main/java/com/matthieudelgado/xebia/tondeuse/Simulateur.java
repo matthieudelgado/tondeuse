@@ -16,7 +16,7 @@ public class Simulateur {
 	}
 	
 	public void ajouterTondeuse(Tondeuse tondeuse, int x, int y, Orientation orientation){
-		if(terrain.placerTondeuse(tondeuse, x, y, orientation)){
+		if(terrain.installerTondeuse(tondeuse, x, y, orientation)){
 			tondeuses.add(tondeuse);
 		}
 	}
