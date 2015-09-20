@@ -7,7 +7,7 @@ Given une autre tondeuse avec la position 3, 3, E
 When on donne l'ordre G,A,G,A,G,A,G,A,A a la tondeuse 1
 When on donne l'ordre A,A,D,A,A,D,A,D,D,A a la tondeuse 2
 Then la position de la tondeuse 1 est 1, 3, N
-Then la position de la tondeuse 2 est 5, 1, E
+Then la position de la tondeuse 2 est 4, 1, E
 
 Scenario: Collision entre deux tondeuses
 
