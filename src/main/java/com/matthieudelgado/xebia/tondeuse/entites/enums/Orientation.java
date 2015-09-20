@@ -1,4 +1,4 @@
-package com.matthieudelgado.xebia.tondeuse;
+package com.matthieudelgado.xebia.tondeuse.entites.enums;
 
 public enum Orientation {
 	N(0),

@@ -1,4 +1,8 @@
-package com.matthieudelgado.xebia.tondeuse;
+package com.matthieudelgado.xebia.tondeuse.factory;
+
+import com.matthieudelgado.xebia.tondeuse.Simulateur;
+import com.matthieudelgado.xebia.tondeuse.entites.Terrain;
+import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 
 public class MowItNowFactory {
 

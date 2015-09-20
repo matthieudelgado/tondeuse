@@ -1,6 +1,9 @@
-package com.matthieudelgado.xebia.tondeuse;
+package com.matthieudelgado.xebia.tondeuse.entites;
 
 import java.util.Arrays;
+
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Case;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
 
 public class Terrain {
 	private int longueur;

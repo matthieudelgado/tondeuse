@@ -1,4 +1,7 @@
-package com.matthieudelgado.xebia.tondeuse;
+package com.matthieudelgado.xebia.tondeuse.entites;
+
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
 
 public class Tondeuse {
 	private int x;
@@ -32,7 +35,7 @@ public class Tondeuse {
 		this.orientation = orientation;
 	}
 
-	protected void ordonner(Ordre ordre){
+	public void ordonner(Ordre ordre){
 		switch(ordre){
 		case A : 
 			avancer();

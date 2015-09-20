@@ -3,6 +3,11 @@ package com.matthieudelgado.xebia.tondeuse;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.matthieudelgado.xebia.tondeuse.entites.Terrain;
+import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
+
 public class Simulateur {
 	private List<Tondeuse> tondeuses;
 	private Terrain terrain;

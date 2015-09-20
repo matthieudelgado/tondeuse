@@ -3,7 +3,6 @@ package com.matthieudelgado.xebia.steps;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.jbehave.core.annotations.Alias;
@@ -11,12 +10,11 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
-import com.matthieudelgado.xebia.tondeuse.MowItNowFactory;
-import com.matthieudelgado.xebia.tondeuse.Ordre;
-import com.matthieudelgado.xebia.tondeuse.Orientation;
 import com.matthieudelgado.xebia.tondeuse.Simulateur;
-import com.matthieudelgado.xebia.tondeuse.Terrain;
-import com.matthieudelgado.xebia.tondeuse.Tondeuse;
+import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
+import com.matthieudelgado.xebia.tondeuse.factory.MowItNowFactory;
 
 public class Steps {
 	private Simulateur simulateur;
