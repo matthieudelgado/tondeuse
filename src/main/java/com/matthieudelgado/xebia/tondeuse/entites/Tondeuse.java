@@ -86,8 +86,12 @@ public class Tondeuse {
 	}
 
 	public void demarrer() {
-		ordres.forEach(ordre -> ordonner(ordre));
-		System.out.println("Trajet terminée. Position finale : "+this);
+		if(this.terrain != null){
+			ordres.forEach(ordre -> ordonner(ordre));
+			System.out.println("Trajet terminée. Position finale : "+this);
+		} else {
+			System.out.println("Je n'ai pas été ajouté au terrain.");
+		}
 	}
 
 
