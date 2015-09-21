@@ -1,5 +1,7 @@
 package com.matthieudelgado.xebia.tondeuse.entites;
 
+import java.util.List;
+
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
 
@@ -8,9 +10,21 @@ public class Tondeuse {
 	private int y;
 	private Orientation orientation;
 	private Terrain terrain;
+	private List<Ordre> ordres;
 	
+	public Tondeuse(int x, int y, Orientation orientation) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.orientation = orientation;
+	}
+
 	public void setTerrain(Terrain terrain){
 		this.terrain = terrain; 
+	}
+	
+	public void setOrdres(List<Ordre> ordres) {
+		this.ordres = ordres;
 	}
 	
 	public int getX() {
@@ -23,19 +37,7 @@ public class Tondeuse {
 		return orientation;
 	}
 	
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public void setOrientation(Orientation orientation) {
-		this.orientation = orientation;
-	}
-
-	public void ordonner(Ordre ordre){
+	private void ordonner(Ordre ordre){
 		switch(ordre){
 		case A : 
 			avancer();
@@ -82,5 +84,12 @@ public class Tondeuse {
 	public String toString(){
 		return "("+x+", "+y+", "+orientation.name()+")";
 	}
+
+	public void demarrer() {
+		ordres.forEach(ordre -> ordonner(ordre));
+		System.out.println("Trajet terminée. Position finale : "+this);
+	}
+
+
 	
 }

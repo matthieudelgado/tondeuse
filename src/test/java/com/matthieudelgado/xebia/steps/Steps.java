@@ -11,11 +11,11 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
-import com.matthieudelgado.xebia.tondeuse.Simulateur;
 import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
 import com.matthieudelgado.xebia.tondeuse.factory.MowItNowFactory;
+import com.matthieudelgado.xebia.tondeuse.simulateur.Simulateur;
 
 public class Steps {
 	private Simulateur simulateur;
@@ -28,13 +28,14 @@ public class Steps {
 	@Given("une tondeuse avec la position $x, $y, $orientation")
 	@Alias("une autre tondeuse avec la position $x, $y, $orientation")
 	public void initierTondeuse(int x, int y, Orientation orientation) {
-	   Tondeuse tondeuse = MowItNowFactory.creerTondeuse(); 
-	   simulateur.ajouterTondeuse(tondeuse, x, y, orientation);
+	   Tondeuse tondeuse = MowItNowFactory.creerTondeuse(x, y, orientation); 
+	   simulateur.ajouterTondeuse(tondeuse);
 	}
 	
 	@When("on donne l'ordre $ordre a la tondeuse $idTondeuse")
 	public void ordonner(List<Ordre> ordres, int idTondeuse) {
-	    ordres.stream().forEach(ordre -> simulateur.ordonnerTondeuse(ordre, idTondeuse - 1));
+		simulateur.setOrdres(idTondeuse -1, ordres);
+		simulateur.demarrerTondeuse(idTondeuse -1);
 	}
 	 
 	@Then("la position de la tondeuse  $idTondeuse est $x, $y, $orientation")
@@ -43,6 +44,11 @@ public class Steps {
 		assertThat(simulateur.getTondeuse(idTondeuse-1).getY(), equalTo(y));
 		assertThat(simulateur.getTondeuse(idTondeuse-1).getOrientation(), equalTo(orientation));
 	}	
+	
+	@Then("la tondeuse $idTondeuse n'est pas sur le terrain")
+	public void verifierAbsenceTondeuse(int idTondeuse){
+		assertThat(simulateur.getTondeuse(idTondeuse-1), equalTo(null));
+	}
 	
 	@AfterScenario 
 	public void apresScenario() {

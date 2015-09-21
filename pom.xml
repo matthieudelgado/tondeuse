@@ -81,6 +81,7 @@
               <includes>
                 <include>${embeddables}</include>
               </includes>
+              <scope>test</scope>
               <excludes />
               <ignoreFailureInStories>true</ignoreFailureInStories>
               <ignoreFailureInView>false</ignoreFailureInView>
@@ -95,6 +96,21 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+		  <groupId>org.codehaus.mojo</groupId>
+		  <artifactId>exec-maven-plugin</artifactId>
+		  <version>1.2.1</version>
+		  <executions>
+		    <execution>
+		      <goals>
+		        <goal>java</goal>
+		      </goals>
+		    </execution>
+		  </executions>
+		  <configuration>
+	    <mainClass>com.matthieudelgado.xebia.tondeuse.main.Main</mainClass>
+	  </configuration>
+	</plugin>
     </plugins>
   </build>
 

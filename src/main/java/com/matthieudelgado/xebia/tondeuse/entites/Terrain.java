@@ -32,13 +32,10 @@ public class Terrain {
 		return Case.COURT.equals(_case) || Case.LONG.equals(_case);
 	}
 	
-	public boolean installerTondeuse(Tondeuse tondeuse, int x, int y, Orientation orientation){
-		if(estCaseLibre(x,y)){
-			tondeuse.setX(x);
-			tondeuse.setY(y);
-			tondeuse.setOrientation(orientation);
+	public boolean installerTondeuse(Tondeuse tondeuse){
+		if(estCaseLibre(tondeuse.getX(),tondeuse.getY())){
 			tondeuse.setTerrain(this);
-			positionerTondeuse(x, y);
+			positionerTondeuse(tondeuse.getX(),tondeuse.getY());
 			return true;
 		}
 		return false;

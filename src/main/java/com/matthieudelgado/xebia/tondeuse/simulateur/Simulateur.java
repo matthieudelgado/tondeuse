@@ -1,4 +1,4 @@
-package com.matthieudelgado.xebia.tondeuse;
+package com.matthieudelgado.xebia.tondeuse.simulateur;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,15 +20,12 @@ public class Simulateur {
 		this.terrain = terrain;
 	}
 	
-	public void ajouterTondeuse(Tondeuse tondeuse, int x, int y, Orientation orientation){
-		if(terrain.installerTondeuse(tondeuse, x, y, orientation)){
+	public void ajouterTondeuse(Tondeuse tondeuse){
+		if(terrain.installerTondeuse(tondeuse)){
 			tondeuses.add(tondeuse);
+		} else {
+			tondeuses.add(null);
 		}
-	}
-	
-	public void ordonnerTondeuse(Ordre ordre, int numTondeuse){
-		if(numTondeuse<tondeuses.size())
-			tondeuses.get(numTondeuse).ordonner(ordre);
 	}
 	
 	public Tondeuse getTondeuse(int numTondeuse){
@@ -46,6 +43,18 @@ public class Simulateur {
 			numTondeuse++;
 		}
 		
+	}
+
+	public void setOrdres(int numTondeuse, List<Ordre> ordres) {
+		Tondeuse tondeuse = getTondeuse(numTondeuse);
+		if(tondeuse != null)
+			tondeuse.setOrdres(ordres);
+	}
+
+	public void demarrerTondeuse(int numTondeuse) {
+		Tondeuse tondeuse = getTondeuse(numTondeuse);
+		if(tondeuse != null)
+			tondeuse.demarrer();
 	}
 
 }

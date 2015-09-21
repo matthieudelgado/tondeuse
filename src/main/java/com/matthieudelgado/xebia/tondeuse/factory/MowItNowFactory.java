@@ -1,8 +1,9 @@
 package com.matthieudelgado.xebia.tondeuse.factory;
 
-import com.matthieudelgado.xebia.tondeuse.Simulateur;
 import com.matthieudelgado.xebia.tondeuse.entites.Terrain;
 import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
+import com.matthieudelgado.xebia.tondeuse.simulateur.Simulateur;
 
 public class MowItNowFactory {
 
@@ -13,8 +14,8 @@ public class MowItNowFactory {
 		return simulateur;
 	}
 	
-	public static Tondeuse creerTondeuse(){
-		return new Tondeuse();
+	public static Tondeuse creerTondeuse(int x, int y, Orientation orientation){
+		return new Tondeuse(x, y, orientation);
 	}
 	
 }
