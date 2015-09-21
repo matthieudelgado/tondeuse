@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
 import com.matthieudelgado.xebia.tondeuse.exceptions.FichierMalFormeException;
-import com.matthieudelgado.xebia.tondeuse.factory.MowItNowFileFactory;
+import com.matthieudelgado.xebia.tondeuse.factory.MowItNowFactory;
 import com.matthieudelgado.xebia.tondeuse.simulateur.Simulateur;
 
 public class Main {
@@ -34,18 +34,18 @@ public class Main {
 			List<Tondeuse> tondeuses = new ArrayList<>();
 			if(lignes.size() >= 3){
 				String ligneTerrain = lignes.get(0);
-				Simulateur simulateur = MowItNowFileFactory.creerSimutaleur(ligneTerrain);
+				Simulateur simulateur = MowItNowFactory.creerSimutaleur(ligneTerrain);
 				if(simulateur == null){
 					throw new FichierMalFormeException("Format attendu pour un terrain : '\\d+ \\d+'");
 				}
 				int ligneCourante = 1;
 				while( lignes.size() > ligneCourante + 1){
-					Tondeuse tondeuse = MowItNowFileFactory.creerTondeuse(lignes.get(ligneCourante));
+					Tondeuse tondeuse = MowItNowFactory.creerTondeuse(lignes.get(ligneCourante));
 					if(tondeuse == null){
 						throw new FichierMalFormeException("Format attendu pour une tondeuse : '\\d+ \\d+ (N|S|E|O)'");
 					}
 					simulateur.ajouterTondeuse(tondeuse);
-					List<Ordre> ordres = MowItNowFileFactory.creerOrdres(lignes.get(ligneCourante+1));
+					List<Ordre> ordres = MowItNowFactory.creerOrdres(lignes.get(ligneCourante+1));
 					if(ordres == null){
 						throw new FichierMalFormeException("Format attendu pour des ordres : '(G|D|A)+'");
 					}

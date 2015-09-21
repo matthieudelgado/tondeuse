@@ -18,55 +18,29 @@ public class Tondeuse {
 		this.y = y;
 		this.orientation = orientation;
 	}
-
-	public void setTerrain(Terrain terrain){
-		this.terrain = terrain; 
-	}
 	
-	public void setOrdres(List<Ordre> ordres) {
-		this.ordres = ordres;
-	}
-	
-	public int getX() {
-		return x;
-	}
-	public int getY() {
-		return y;
-	}
-	public Orientation getOrientation() {
-		return orientation;
+	public void demarrer() {
+		if(this.terrain != null){
+			ordres.forEach(ordre -> ordonner(ordre));
+			System.out.println("Trajet terminée. Position finale : "+this);
+		} else {
+			System.out.println("Je n'ai pas été ajouté au terrain : "+this);
+		}
 	}
 	
 	private void ordonner(Ordre ordre){
 		switch(ordre){
 		case A : 
-			avancer();
+			deplacer( orientation.getCos(),orientation.getSin());
 			break;
-		case G:
-			orientation = Orientation.getOrientationByValue(orientation.getValeur() -1);
-			break;
-		case D:
-			orientation = Orientation.getOrientationByValue(orientation.getValeur() +1);
-			break;
-			
+		default :
+			tourner(ordre);
 		}
 	}
 	
-	private void avancer(){
-		switch(orientation){
-		case N :
-			deplacer(0,1);
-			break;
-		case E:
-			deplacer(1,0);
-			break;
-		case S:
-			deplacer(0,-1);
-			break;
-		case W:
-			deplacer(-1,0);
-			break;
-		}
+	private void tourner(Ordre ordre){
+		int coef = ordre.equals(Ordre.G) ? 1 : -1;
+		orientation = Orientation.getOrientationByTrig(orientation.getTrig() + coef * (Math.PI /2 ));
 	}
 	
 	private void deplacer(int deltaX, int deltaY){
@@ -84,14 +58,23 @@ public class Tondeuse {
 	public String toString(){
 		return "("+x+", "+y+", "+orientation.name()+")";
 	}
-
-	public void demarrer() {
-		if(this.terrain != null){
-			ordres.forEach(ordre -> ordonner(ordre));
-			System.out.println("Trajet terminée. Position finale : "+this);
-		} else {
-			System.out.println("Je n'ai pas été ajouté au terrain : "+this);
-		}
+	
+	public void setTerrain(Terrain terrain){
+		this.terrain = terrain; 
+	}
+	
+	public void setOrdres(List<Ordre> ordres) {
+		this.ordres = ordres;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	public Orientation getOrientation() {
+		return orientation;
 	}
 
 
