@@ -90,7 +90,7 @@ public class Tondeuse {
 			ordres.forEach(ordre -> ordonner(ordre));
 			System.out.println("Trajet terminée. Position finale : "+this);
 		} else {
-			System.out.println("Je n'ai pas été ajouté au terrain.");
+			System.out.println("Je n'ai pas été ajouté au terrain : "+this);
 		}
 	}
 
