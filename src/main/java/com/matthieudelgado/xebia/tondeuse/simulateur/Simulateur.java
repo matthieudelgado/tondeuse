@@ -42,7 +42,6 @@ public class Simulateur {
 			System.out.println("Position de la tondeuse n "+numTondeuse+" : "+tondeuse+"\n");
 			numTondeuse++;
 		}
-		
 	}
 
 	public void setOrdres(int numTondeuse, List<Ordre> ordres) {
@@ -56,5 +55,4 @@ public class Simulateur {
 		if(tondeuse != null)
 			tondeuse.demarrer();
 	}
-
 }

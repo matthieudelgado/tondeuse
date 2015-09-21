@@ -70,13 +70,12 @@ public class Tondeuse {
 	public int getX() {
 		return x;
 	}
+		
 	public int getY() {
 		return y;
 	}
+	
 	public Orientation getOrientation() {
 		return orientation;
 	}
-
-
-	
 }

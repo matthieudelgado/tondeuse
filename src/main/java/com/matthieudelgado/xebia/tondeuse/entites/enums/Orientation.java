@@ -9,7 +9,6 @@ public enum Orientation {
 	private double trig;
 	
 	Orientation(double trig){
-
 		this.trig = trig;
 	}
 	
@@ -23,7 +22,6 @@ public enum Orientation {
 	public int getSin(){
 		return ((Double) Math.sin(trig)).intValue();
 	}
-	
 	
 	public static Orientation getOrientationByTrig(double trig){
 		for(Orientation orientation : values()){
