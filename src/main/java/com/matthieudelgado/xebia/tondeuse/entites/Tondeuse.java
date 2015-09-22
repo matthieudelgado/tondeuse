@@ -12,7 +12,7 @@ public class Tondeuse {
 	private Terrain terrain;
 	private List<Ordre> ordres;
 	
-	public Tondeuse(int x, int y, Orientation orientation) {
+	protected Tondeuse(int x, int y, Orientation orientation) {
 		super();
 		this.x = x;
 		this.y = y;

@@ -9,7 +9,7 @@ public class Terrain {
 	private int largeur;	
 	private Case[][] cases;
 
-	public Terrain(int longueur, int largeur) {
+	protected Terrain(int longueur, int largeur) {
 		super();
 		this.longueur = longueur;
 		this.largeur = largeur;

@@ -6,10 +6,11 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.matthieudelgado.xebia.tondeuse.entites.MowItNowFactory;
 import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
+import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
 import com.matthieudelgado.xebia.tondeuse.exceptions.FichierMalFormeException;
-import com.matthieudelgado.xebia.tondeuse.factory.MowItNowFactory;
 import com.matthieudelgado.xebia.tondeuse.simulateur.Ordonnanceur;
 
 public class MowItNowFileExecutor {

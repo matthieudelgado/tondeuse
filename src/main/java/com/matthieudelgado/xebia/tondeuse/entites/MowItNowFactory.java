@@ -1,4 +1,4 @@
-package com.matthieudelgado.xebia.tondeuse.factory;
+package com.matthieudelgado.xebia.tondeuse.entites;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import com.matthieudelgado.xebia.tondeuse.entites.Terrain;
-import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
 import com.matthieudelgado.xebia.tondeuse.simulateur.Ordonnanceur;

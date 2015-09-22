@@ -11,10 +11,10 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import com.matthieudelgado.xebia.tondeuse.entites.MowItNowFactory;
 import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
-import com.matthieudelgado.xebia.tondeuse.factory.MowItNowFactory;
 import com.matthieudelgado.xebia.tondeuse.simulateur.Ordonnanceur;
 
 public class Steps {
