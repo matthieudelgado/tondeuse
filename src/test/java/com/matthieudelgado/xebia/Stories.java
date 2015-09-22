@@ -27,14 +27,6 @@ import org.jbehave.core.steps.ParameterConverters.EnumListConverter;
 
 import com.matthieudelgado.xebia.steps.Steps;
 
-/**
- * <p>
- * {@link Embeddable} class to run multiple textual stories via JUnit.
- * </p>
- * <p>
- * Stories are specified in classpath and correspondingly the {@link LoadFromClasspath} story loader is configured.
- * </p> 
- */
 public class Stories extends JUnitStories {
     
     public Stories() {
@@ -45,11 +37,8 @@ public class Stories extends JUnitStories {
     @Override
     public Configuration configuration() {
         Class<? extends Embeddable> embeddableClass = this.getClass();
-        // Start from default ParameterConverters instance
         ParameterConverters parameterConverters = new ParameterConverters();
-        // factory to allow parameter conversion and loading from external resources (used by StoryParser too)
         ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(new LocalizedKeywords(), new LoadFromClasspath(embeddableClass), parameterConverters);
-        // add custom converters
         parameterConverters.addConverters(new EnumConverter(), new EnumListConverter());
         return new MostUsefulConfiguration()
             .useStoryLoader(new LoadFromClasspath(embeddableClass))

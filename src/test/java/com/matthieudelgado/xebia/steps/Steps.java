@@ -15,10 +15,10 @@ import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
 import com.matthieudelgado.xebia.tondeuse.factory.MowItNowFactory;
-import com.matthieudelgado.xebia.tondeuse.simulateur.Simulateur;
+import com.matthieudelgado.xebia.tondeuse.simulateur.Ordonnanceur;
 
 public class Steps {
-	private Simulateur simulateur;
+	private Ordonnanceur simulateur;
 
 	@Given("un terrain de taille $longueur, $largeur")
 	public void initierSimulation(int longueur, int largeur) {

@@ -10,24 +10,24 @@ import com.matthieudelgado.xebia.tondeuse.entites.Terrain;
 import com.matthieudelgado.xebia.tondeuse.entites.Tondeuse;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Ordre;
 import com.matthieudelgado.xebia.tondeuse.entites.enums.Orientation;
-import com.matthieudelgado.xebia.tondeuse.simulateur.Simulateur;
+import com.matthieudelgado.xebia.tondeuse.simulateur.Ordonnanceur;
 
 public class MowItNowFactory {
 
-	public static Simulateur creerSimutaleur(int longueur, int largeur){
-		Simulateur simulateur = new Simulateur();
+	public static Ordonnanceur creerSimutaleur(int longueur, int largeur){
+		Ordonnanceur simulateur = new Ordonnanceur();
 		Terrain terrain = new Terrain(longueur, largeur);
 		simulateur.setTerrain(terrain);
 		return simulateur;
 	}
 	
-	public static Simulateur creerSimutaleur(String ligneTerrain){
+	public static Ordonnanceur creerSimutaleur(String ligneTerrain){
 		Pattern pattern = Pattern.compile("(\\d+) (\\d+)");
 		Matcher matcher = pattern.matcher(ligneTerrain);
 		if(matcher.matches()) {
 			int longueur = Integer.valueOf(matcher.group(1));
 			int largeur = Integer.valueOf(matcher.group(2));
-			Simulateur simulateur = new Simulateur();
+			Ordonnanceur simulateur = new Ordonnanceur();
 			Terrain terrain = new Terrain(longueur, largeur);
 			simulateur.setTerrain(terrain);
 			return simulateur;
