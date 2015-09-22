@@ -12,9 +12,9 @@ import com.matthieudelgado.xebia.tondeuse.simulateur.Ordonnanceur;
 
 public class MowItNowFactory {
 
-	public static Ordonnanceur creerSimutaleur(int longueur, int largeur){
+	public static Ordonnanceur creerSimutaleur(int xMax, int yMax){
 		Ordonnanceur simulateur = new Ordonnanceur();
-		Terrain terrain = new Terrain(longueur, largeur);
+		Terrain terrain = new Terrain(xMax + 1, yMax + 1);
 		simulateur.setTerrain(terrain);
 		return simulateur;
 	}
@@ -23,10 +23,10 @@ public class MowItNowFactory {
 		Pattern pattern = Pattern.compile("(\\d+) (\\d+)");
 		Matcher matcher = pattern.matcher(ligneTerrain);
 		if(matcher.matches()) {
-			int longueur = Integer.valueOf(matcher.group(1));
-			int largeur = Integer.valueOf(matcher.group(2));
+			int xMax = Integer.valueOf(matcher.group(1));
+			int yMax = Integer.valueOf(matcher.group(2));
 			Ordonnanceur simulateur = new Ordonnanceur();
-			Terrain terrain = new Terrain(longueur, largeur);
+			Terrain terrain = new Terrain(xMax + 1, yMax + 1);
 			simulateur.setTerrain(terrain);
 			return simulateur;
 		}

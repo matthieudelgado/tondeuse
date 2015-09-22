@@ -20,9 +20,9 @@ import com.matthieudelgado.xebia.tondeuse.simulateur.Ordonnanceur;
 public class Steps {
 	private Ordonnanceur simulateur;
 
-	@Given("un terrain de taille $longueur, $largeur")
-	public void initierSimulation(int longueur, int largeur) {
-		simulateur = MowItNowFactory.creerSimutaleur(longueur, largeur);
+	@Given("un terrain dont le coin superieur droit est $xMax, $yMax")
+	public void initierSimulation(int xMax, int yMax) {
+		simulateur = MowItNowFactory.creerSimutaleur(xMax, yMax);
 	}
 	
 	@Given("une tondeuse avec la position $x, $y, $orientation")
